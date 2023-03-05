@@ -110,7 +110,15 @@ const RegisterScreen = () => {
               borderColor: colors.white,
             }}
           />
-          <Pressable p={3} bg={colors.primary2} rounded={15}>
+          <Pressable
+            p={3}
+            bg={colors.primary2}
+            rounded={15}
+            w={{
+              base: "75%",
+              md: "25%",
+            }}
+          >
             <Text color={colors.white} fontSize="xl">
               S'inscrire
             </Text>

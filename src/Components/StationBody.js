@@ -1,4 +1,4 @@
-import { Center, HStack, Text, View } from "native-base";
+import { Center, HStack, ScrollView, Text, View } from "native-base";
 import React, { useState } from "react";
 import { ImageBackground, ImageBackgroundBase } from "react-native";
 import colors from "../Colors";
@@ -7,6 +7,8 @@ import { useWindowDimensions } from "react-native";
 import { TabView, SceneMap } from "react-native-tab-view";
 import Product from "./Product";
 import produits from "../data/produit";
+import Carte from "./Carte";
+
 const StationBody = () => {
   const layout = useWindowDimensions();
   const [index, setIndex] = useState(0);
@@ -16,13 +18,17 @@ const StationBody = () => {
   ]);
   const FirstRoute = () => (
     <View style={{ flex: 1 }} bg={colors.easyWhite}>
-      {produits.map((p, index) => (
-        <Product produits={p} index={index} />
-      ))}
+      <ScrollView>
+        {produits.map((p, index) => (
+          <Product produits={p} index={index} key={index} />
+        ))}
+      </ScrollView>
     </View>
   );
   const SecondRoute = () => (
-    <View style={{ flex: 1, backgroundColor: "#673ab7" }}></View>
+    <View style={{ flex: 1, backgroundColor: "#673ab7" }}>
+      <Carte />
+    </View>
   );
   const renderScene = SceneMap({
     first: FirstRoute,

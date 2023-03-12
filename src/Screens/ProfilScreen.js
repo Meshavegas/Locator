@@ -1,10 +1,12 @@
-import { View, Text } from "react-native";
+import { View, Text } from "native-base";
 import React from "react";
+import colors from "../Colors";
+import TopStation from "../Components/TopStation";
 
 const ProfilScreen = () => {
   return (
-    <View>
-      <Text>ProfilScreen</Text>
+    <View bg={colors.danger}>
+      <TopStation />
     </View>
   );
 };
